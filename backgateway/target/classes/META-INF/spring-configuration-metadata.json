@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "white.ignore",
+      "type": "com.study.core.AuthFilter",
+      "sourceType": "com.study.core.AuthFilter"
+    }
+  ],
+  "properties": [
+    {
+      "name": "white.ignore.urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.study.core.AuthFilter"
+    }
+  ],
+  "hints": []
+}

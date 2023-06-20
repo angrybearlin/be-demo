@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mapper.UmsResourceMapper">
+    <select id="getByUserId" resultType="com.study.entity.UmsResource" parameterType="string">
+        select
+            distinct
+            r1.id,
+            r1.name,
+            r1.type,
+            r1.level,
+            r1.parent_id as parentId,
+            r1.front_url as frontUrl,
+            r1.back_url as backUrl,
+            r1.sort
+        from
+            ums_role_user ru inner join ums_role r on ru.role_id = r.id
+                             inner join ums_role_resource rr on r.id = rr.role_id
+                             inner join ums_resource r1 on r1.id = rr.resource_id
+        where
+            ru.user_id = #{userId}
+          and
+            r.active = 1
+        order by r1.sort
+    </select>
+</mapper>

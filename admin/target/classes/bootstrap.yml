@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: admin
+  profiles:
+    active: datasource,register,upload,feign,rabbitmq,redis
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: study
+        file-extension: yml
